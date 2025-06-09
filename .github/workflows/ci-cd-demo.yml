@@ -1,0 +1,23 @@
+# Workflow name clearly indicating purpose
+name: Demo CI/CD Pipeline
+
+# Trigger this workflow whenever there's a push event
+on: [push]  # Consider limiting to specific branches (e.g., main) for efficiency
+
+jobs:
+  # Define a job called 'build' to execute workflow tasks
+  build:
+    # Runner environment; ubuntu-latest is common
+    runs-on: ubuntu-latest  
+    
+    steps:
+      # Checkout repository code so the workflow has access to your project files
+      - uses: actions/checkout@v3
+      
+      # Simple test step to verify pipeline execution
+      - name: Run a simple echo command
+        run: echo "Hello Datadog! CI/CD pipeline successfully triggered!"
+
+      # Simple deployment step demonstrating CD
+      - name: Deploy step
+        run: echo "Deploying application to environment..."
